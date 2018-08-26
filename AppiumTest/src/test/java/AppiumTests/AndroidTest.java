@@ -14,6 +14,8 @@ public class AndroidTest {
 		Android.setCapabilities(strPlatfformVersion, deviceName);
 		Android.startApp();
 		
+		//
+		
 		
 		
 		
