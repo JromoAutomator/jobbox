@@ -23,11 +23,12 @@ public class AndroidDevice {
 	public DesiredCapabilities cap =null;
 	public String strdeviceName="";
 	public AppiumDriver<WebElement> Mobiledriver;
+	public String strOS = System.getProperty("os.name");
 	
 	public void setCapabilities (String strPlatfformVersion,String deviceName){
 		
 		this.strdeviceName=deviceName;
-		
+		System.out.println("Script Running on "+this.strOS);
 		this.cap = new DesiredCapabilities();
 		this.cap.setCapability("appPackage", "com.jobboxsoft.serviceboxmobile");
 		this.cap.setCapability("appActivity", "md5c4bbbd90917fb7db4dcd4062ad25989b.SplashActivity");
@@ -40,15 +41,17 @@ public class AndroidDevice {
 		}
 	
 	public void startApp() {
-		//check if appium and emulator are running
-	    if(!this.AppiumRunning()) {
-			System.out.println("Appium Server is not running, ending test.....");
-			System.exit(0);
-		}
-		
-	    if(!this.EmulatorRunning()) {
-			System.out.println("No Emulator found, ending test.....");
-			System.exit(0);
+		//check if appium and emulator are running OS
+		if(this.strOS.equals("Mac OS X")) {
+		    if(!this.AppiumRunning()) {
+				System.out.println("Appium Server is not running, ending test.....");
+				System.exit(0);
+			}
+			
+		    if(!this.EmulatorRunning()) {
+				System.out.println("No Emulator found, ending test.....");
+				System.exit(0);
+			}
 		}
 	    
 		try {
