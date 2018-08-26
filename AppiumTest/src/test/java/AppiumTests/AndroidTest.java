@@ -2,6 +2,7 @@ package AppiumTests;
 
 import org.junit.Test;
 import tools.AndroidDevice;
+import tools.jobbox;
 
 public class AndroidTest {
 
@@ -14,7 +15,9 @@ public class AndroidTest {
 		Android.setCapabilities(strPlatfformVersion, deviceName);
 		Android.startApp();
 		
-		
+		//Login
+		jobbox jobboxApp= new jobbox(Android);
+		jobboxApp.login("jb","Jesus","Jobbox1!");
 		
 		
 		
