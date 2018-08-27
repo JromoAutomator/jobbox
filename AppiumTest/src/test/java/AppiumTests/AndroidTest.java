@@ -15,12 +15,10 @@ public class AndroidTest {
 		Android.setCapabilities(strPlatfformVersion, deviceName);
 		Android.startApp();
 		
-		
 		//Login
-		
-		
 		jobbox jobboxApp= new jobbox(Android);
 		jobboxApp.login("jb","Jesus","Jobbox1!");
+
 		
 		
 		
